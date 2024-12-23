@@ -1,0 +1,46 @@
+.searchForm {
+  display: flex;
+  max-width: 400px;
+  border: 3px solid rgba(85, 26, 139, 0.6);
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 25px;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.searchForm:hover,
+.searchForm:focus {
+  border-color: rgb(85, 26, 139);
+}
+
+.searchFormBtn {
+  height: 35px;
+  border: 0;
+  opacity: 0.6;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  outline: none;
+}
+
+.searchFormBtn svg {
+  display: flex;
+}
+
+.searchFormBtn:hover {
+  opacity: 1;
+}
+
+.searchFormInput {
+  display: inline-block;
+  width: 100%;
+  font: inherit;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+}
+
+.searchFormInput::placeholder {
+  font: inherit;
+  font-size: 16px;
+  opacity: 0.8;
+}

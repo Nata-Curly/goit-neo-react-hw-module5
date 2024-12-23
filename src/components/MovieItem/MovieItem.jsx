@@ -1,10 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
 import defaultPoster from "../../images/no_image_poster.png";
-import css from './MovieItem.module.css'
+import css from "./MovieItem.module.css";
 
 const MovieItem = ({ id, title, poster, vote }) => {
-    const location = useLocation()
-    // console.log(location);
+  const location = useLocation();
+
   return (
     <li className={css.item} id={id}>
       <Link to={`/movies/${id}`} state={location}>

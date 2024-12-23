@@ -1,0 +1,24 @@
+.container {
+  padding: 25px;
+}
+
+.title {
+  text-align: center;
+  color: rgb(85, 26, 139);
+}
+
+.list {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.author {
+  font-weight: bold;
+}
+
+.text {
+  margin-top: 10px;
+  text-align: justify;
+}

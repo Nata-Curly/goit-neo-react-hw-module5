@@ -1,5 +1,5 @@
 .container {
-    padding: 15px;
+  padding: 25px;
 }
 
 .active {
@@ -22,19 +22,30 @@
   position: relative;
 }
 
-.link:after {
+.backLink {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1;
+  position: relative;
+  margin-left: 10px;
+}
+
+.link:after,
+.backLink:after {
   display: block;
   position: absolute;
-  left: 0; 
-  width: 0; 
-  height: 4px; 
+  left: 0;
+  width: 0;
+  height: 4px;
   border-radius: 8px;
-  background-color: rgba(85, 26, 139, 0.8); 
+  background-color: rgba(85, 26, 139, 0.8);
   content: "";
-  transition: width 500ms ease-out; 
+  transition: width 500ms ease-out;
 }
 
 .link:hover:after,
-.link:focus:after {
-  width: 100%; 
+.backLink:hover:after,
+.link:focus:after,
+.backLink:focus:after {
+  width: 100%;
 }

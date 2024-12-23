@@ -3,7 +3,6 @@
   line-height: 1.5;
   font-weight: 400;
 
-  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -12,9 +11,7 @@
 
 a {
   text-decoration: inherit;
-  /* text-decoration-line: none;
-  text-decoration-color: rgb(85, 26, 139); */
-color: rgb(85, 26, 139);
+  color: rgb(85, 26, 139);
 }
 
 body {

@@ -1,16 +1,18 @@
 import { useSearchParams } from "react-router-dom";
 import SearchForm from "../../components/SearchForm/SearchForm";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { searchMovies } from "../../api/movies";
 import MovieList from "../../components/MovieList/MovieList";
 import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import toast from "react-hot-toast";
 
 const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const toastDisplayed = useRef(false);
 
   useEffect(() => {
     const query = searchParams.get("query");
@@ -20,8 +22,15 @@ const MoviesPage = () => {
         setLoading(true);
         const res = await searchMovies(query);
         setMovies(res.results);
+        if (res.results.length === 0 && !toastDisplayed.current) {
+          toast("Oops... There's no such movie", {
+            icon: "😳",
+          });
+          toastDisplayed.current = true;
+        }
       } catch (error) {
-        setError(error.message);
+        toast.error(error.message);
+        setError(true);
       } finally {
         setLoading(false);
       }
@@ -34,20 +43,16 @@ const MoviesPage = () => {
   };
 
   return (
-    <div>
+    <main>
       <SearchForm onSearch={handleSearch} />
-      {movies ? (
-        <MovieList movies={movies} />
-      ) : (
-        <p>Oops, there`s no such movies</p>
-      )}
+      {movies.length > 0 && <MovieList movies={movies} />}
       {loading && <Loader />}
       {!loading && error && (
         <ErrorMessage
           message={"Oops, something went wrong... Please reload!"}
         />
       )}
-    </div>
+    </main>
   );
 };
 
